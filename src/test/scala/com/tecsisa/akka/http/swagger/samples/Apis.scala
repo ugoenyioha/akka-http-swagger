@@ -18,7 +18,7 @@ package com.tecsisa.akka.http.swagger.samples
 import javax.ws.rs.Path
 
 import akka.actor.Actor
-import akka.http.server.Directives
+import akka.http.scaladsl.server.Directives
 import akka.stream.scaladsl.ImplicitFlowMaterializer
 import com.tecsisa.akka.http.swagger.utils.JsonMarshalling
 import com.wordnik.swagger.annotations._

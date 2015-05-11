@@ -1,9 +1,9 @@
 package com.tecsisa.akka.http.swagger
 
 import akka.actor.{Actor, ActorSystem, Props}
-import akka.http.model.ContentTypes
-import akka.http.server.Directives
-import akka.http.testkit.ScalatestRouteTest
+import akka.http.scaladsl.model.ContentTypes
+import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.testkit.ScalatestRouteTest
 import akka.stream.scaladsl.ImplicitFlowMaterializer
 import akka.testkit.TestActorRef
 import com.tecsisa.akka.http.swagger.samples.{PetHttpService, UserHttpService}

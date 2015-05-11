@@ -17,8 +17,8 @@
 package com.tecsisa.akka.http.swagger
 
 import akka.actor.{Actor, ActorSystem}
-import akka.http.marshalling._
-import akka.http.server.{Directives, Route}
+import akka.http.scaladsl.marshalling._
+import akka.http.scaladsl.server.{Directives, Route}
 import akka.stream.scaladsl.ImplicitFlowMaterializer
 import com.wordnik.swagger.config.SwaggerConfig
 import com.wordnik.swagger.core.SwaggerSpec

@@ -1,10 +1,10 @@
 package com.tecsisa.akka.http.swagger.utils
 
-import akka.http.marshalling.{PredefinedToEntityMarshallers, _}
-import akka.http.model.{ContentTypeRange, MediaRange, MediaTypes}
-import akka.http.unmarshalling.Unmarshaller.UnsupportedContentTypeException
-import akka.http.unmarshalling.{PredefinedFromEntityUnmarshallers, _}
-import akka.http.util.FastFuture
+import akka.http.scaladsl.marshalling.{PredefinedToEntityMarshallers, _}
+import akka.http.scaladsl.model.{ContentTypeRange, MediaRange, MediaTypes}
+import akka.http.scaladsl.unmarshalling.Unmarshaller.UnsupportedContentTypeException
+import akka.http.scaladsl.unmarshalling.{PredefinedFromEntityUnmarshallers, _}
+import akka.http.scaladsl.util.FastFuture
 import akka.stream.FlowMaterializer
 import org.json4s.Formats
 

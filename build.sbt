@@ -8,13 +8,13 @@ scalaVersion := "2.11.6"
 lazy val apiProject = (project in file("."))
   .settings(
     libraryDependencies ++= {
-      val AkkaVersion = "2.3.9"
-      val AkkaStreamVersion = "1.0-M5"
+      val AkkaVersion = "2.3.10"
+      val AkkaStreamVersion = "1.0-RC2"
       Seq(
         "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
-        "com.typesafe.akka" %% "akka-http-testkit-experimental" % AkkaStreamVersion,
+        "com.typesafe.akka" %% "akka-http-testkit-scala-experimental" % AkkaStreamVersion,
         "com.typesafe.akka" %% "akka-stream-experimental" % AkkaStreamVersion,
-        "com.typesafe.akka" %% "akka-http-experimental" % AkkaStreamVersion,
+        "com.typesafe.akka" %% "akka-http-scala-experimental" % AkkaStreamVersion,
         "org.scalatest" %% "scalatest" % "2.2.4" % "test",
         "com.wordnik" %% "swagger-core" % "1.3.12" excludeAll(ExclusionRule(organization = "org.json4s"), ExclusionRule(organization = "org.fasterxml*")),
         "org.json4s" %% "json4s-jackson" % "3.2.11",
