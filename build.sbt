@@ -15,14 +15,13 @@ lazy val apiProject = (project in file("."))
         "com.typesafe.akka" %% "akka-http-testkit-scala-experimental" % AkkaStreamVersion % "test",
         "com.typesafe.akka" %% "akka-stream-experimental" % AkkaStreamVersion,
         "com.typesafe.akka" %% "akka-http-scala-experimental" % AkkaStreamVersion,
-        "org.scalatest" %% "scalatest" % "2.2.4" % "test",
         "com.wordnik" %% "swagger-core" % "1.3.12" excludeAll(ExclusionRule(organization = "org.json4s"), ExclusionRule(organization = "org.fasterxml*")),
-        "org.json4s" %% "json4s-jackson" % "3.2.11",
         "org.json4s" %% "json4s-native" % "3.2.11",
-        "joda-time" % "joda-time" % "2.7",
-        "org.joda" % "joda-convert" % "1.7",
         "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
-        "javax.ws.rs" % "jsr311-api" % "1.1.1"
+        "javax.ws.rs" % "jsr311-api" % "1.1.1",
+        "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+        "com.github.nscala-time" %% "nscala-time" % "2.0.0" % "test",
+        "org.json4s" %% "json4s-jackson" % "3.2.11" % "test"
       )
     })
 
