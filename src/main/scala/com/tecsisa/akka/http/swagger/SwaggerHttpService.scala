@@ -18,11 +18,10 @@ package com.tecsisa.akka.http.swagger
 
 import akka.actor.{Actor, ActorSystem}
 import akka.http.scaladsl.marshalling._
-import akka.http.scaladsl.server.{Directives, Route}
-import akka.stream.scaladsl.ImplicitFlowMaterializer
+import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Route
 import com.wordnik.swagger.config.SwaggerConfig
 import com.wordnik.swagger.core.SwaggerSpec
-import com.wordnik.swagger.core.util.JsonSerializer
 import com.wordnik.swagger.model._
 import org.json4s.Formats
 
@@ -30,7 +29,7 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.runtime.universe.Type
 
 trait SwaggerHttpService {
-  _: Actor with ImplicitFlowMaterializer with Directives =>
+  _: Actor =>
 
   def apiTypes: Seq[Type]
 
@@ -60,29 +59,21 @@ trait SwaggerHttpService {
       ), apiTypes
     )
 
+
   final def swaggerRoutes: Route =
-      get {
-          path(docsPath) {
-            complete(api.getResourceListing())
-          } ~
-            (for (
-              (subPath, apiListing) <- api.listings
-            ) yield {
-              path(docsPath / subPath.drop(1).split('/').map(
-                segmentStringToPathMatcher(_)
-              )
-                .reduceLeft(_ / _)) {
-                complete(apiListing)
-              }
-            }).reduceLeft(_ ~ _)
-      }
+    (path(docsPath) & get) {
+        complete(api.getResourceListing())
+      } ~ (for (
+          (subPath, apiListing) <- api.listings
+        ) yield {
+          path(docsPath / subPath.drop(1).split('/').map(
+            segmentStringToPathMatcher _
+          ).reduceLeft(_ / _)) {
+             get{
+               complete(apiListing)
+             }
+          }
+        }).reduceLeft(_ ~ _)
 
 
-  def toJsonString(data: Any): String = {
-    if (data.getClass.equals(classOf[String])) {
-      data.asInstanceOf[String]
-    } else {
-      JsonSerializer.asJson(data.asInstanceOf[AnyRef])
-    }
-  }
 }
