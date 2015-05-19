@@ -12,7 +12,7 @@ The starting code used for this library has been extracted from ```Spray-swagger
 Akka-http-swagger is cross-compiled with scala 2.10.4 and 2.11.2.
 
 ```
-libraryDependencies += "com.tecsisa" %% "akka-http-swagger" % "0.5.1"
+libraryDependencies += "com.tecsisa" %% "akka-http-swagger" % "0.5.3-SNAPSHOT"
 ```
 
 ## Testing
