@@ -29,7 +29,6 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.reflect.runtime.universe.Type
 
 trait SwaggerHttpService {
-  _: Actor =>
 
   def apiTypes: Seq[Type]
 
