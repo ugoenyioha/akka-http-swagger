@@ -18,6 +18,7 @@ lazy val apiProject = (project in file("."))
         "com.wordnik" %% "swagger-core" % "1.3.12" excludeAll(ExclusionRule(organization = "org.json4s"), ExclusionRule(organization = "org.fasterxml*")),
         "org.json4s" %% "json4s-native" % "3.2.11",
         "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
+        "org.slf4j" % "slf4j-simple" % "1.7.13",
         "javax.ws.rs" % "jsr311-api" % "1.1.1",
         "org.scalatest" %% "scalatest" % "2.2.4" % "test",
         "com.github.nscala-time" %% "nscala-time" % "2.0.0" % "test",
